@@ -76,5 +76,29 @@ class ListTest < Minitest::Test
 
     assert_equal list.head.value, 2
   end
+
+  def test_list_unshift
+    list = List.new
+
+    list.add(10)
+    list.add(20)
+    list.add(30)
+    list.add(50)
+
+    list.unshift(5)
+
+    assert_equal list.head.value, 5
+  end
+
+  def test_list_print
+    list = List.new
+
+    list.add(10)
+    list.add(20)
+    list.add(30)
+    list.add(50)
+
+    assert_equal list.print, "10 <-> 20 <-> 30 <-> 50"
+  end
 end
 

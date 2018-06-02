@@ -37,4 +37,28 @@ class List
 
     old_head.next_node = nil
   end
+
+  def unshift(value)
+    new_head = Node.new(value: value)
+
+    old_head = self.head
+
+    old_head.previus_node = new_head
+    new_head.next_node = old_head
+
+    self.head = new_head
+  end
+
+  def print
+    node = self.head
+    output = []
+
+    until node.nil?
+      output << node.value
+
+      node = node.next_node
+    end
+
+    output.join(" <-> ")
+  end
 end
