@@ -1,11 +1,22 @@
 # frozen_string_literal: true
 
 class List
+  include Enumerable
+
   attr_accessor :head, :tail
 
   def initialize(head: nil, tail: nil)
     @head = head
     @tail = tail
+  end
+
+  def each
+    node = self.head
+
+    until node.nil?
+      yield node
+      node = node.next_node
+    end
   end
 
   def add(value)

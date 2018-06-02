@@ -11,6 +11,12 @@ class ListTest < Minitest::Test
     assert_equal list.head, node
   end
 
+  def test_list_each
+    list = List.new
+
+    assert_kind_of Enumerable, list
+  end
+
   def test_list_tail
     node = Node.new(value: 123)
     list = List.new(tail: node)
